@@ -9,5 +9,11 @@ A MAC centralizada cria uma política de acesso ao meio em que o Nível 3 - Bord
 
 ![Topologia Estrela](./3_Figuras/Topologia_estrela.png)
 
+Site com explicações sobre topologia de rede.
+
+https://www.ibm.com/br-pt/think/topics/network-topology?regionCode=br&languageCode=pt&cm-history=br-pt
+
+https://blogtecnologista.com/topologias-de-rede-estrela-arvore-barramento-anel-e-malha-explicacoes-praticas-para-o-dia-a-dia/
+
 ## Organização dos códigos
 
