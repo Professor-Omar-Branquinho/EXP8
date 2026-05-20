@@ -16,4 +16,4 @@ https://www.ibm.com/br-pt/think/topics/network-topology?regionCode=br&languageCo
 https://blogtecnologista.com/topologias-de-rede-estrela-arvore-barramento-anel-e-malha-explicacoes-praticas-para-o-dia-a-dia/
 
 ## Organização dos códigos
-
+Organizar os códigos em subdiretórios numerados para facilitar a documentação do framework.
