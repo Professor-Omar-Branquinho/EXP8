@@ -15,7 +15,7 @@ A MAC centralizada cria uma política de acesso ao meio em que o **Nível 3 - Bo
 
 A próxima figura mostra uma topologia estrela.
 
-![Topologia Estrela](3_Figuras/topologia_estrela.png)
+![Topologia Estrela](./3_Figuras/topologia_estrela.png)
 
 ---
 
@@ -31,19 +31,10 @@ A próxima figura mostra uma topologia estrela.
 
 # Framework TpM
 
-![Framework TpM](3_Figuras/framework_tpm.png)
+![Framework TpM](./3_Figuras/framework_tpm.png)
 
 ---
 
 ## Organização dos códigos
 
 Organizar os códigos em subdiretórios numerados para facilitar a documentação do framework.
-
-```text
-EXP8/
-│
-├── 0_Sensor_LoRa_V0_6/
-├── 1_Gateway_LoRa_V0_6/
-├── 2_Pythons 2 Gateway 3 4 5 6/
-├── 3_Figuras/
-└── README.md
