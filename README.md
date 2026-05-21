@@ -58,3 +58,5 @@ Explicações do código do gateway.
 ![Figura 4 – Arquivos do Python](./3_Figuras/Arquivos_Pythosns.png)
 
 **Figura 4 – Arquivos do Python**
+
+.
