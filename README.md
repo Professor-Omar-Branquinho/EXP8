@@ -12,7 +12,7 @@ A MAC centralizada cria uma política de acesso ao meio em que o Nível 3 - Bord
 
 A próxima figura mostra uma topologia estrela.
 
-![Figura 1 - Topologia Estrela](3_Figuras/figura1.png)
+![Figura 1 - Topologia Estrela](./3_Figuras/Topologia_estrela.png)
 
 **Figura 1 - Topologia Estrela**
 
@@ -25,7 +25,7 @@ A próxima figura mostra uma topologia estrela.
 
 # Framework TpM
 
-![Figura 2 - Framework](3_Figuras/figura2.png)
+![Figura 2 - Framework](./3_Figuras/Framework_Geral.png)
 
 **Figura 2 - Framework**
 
@@ -35,7 +35,7 @@ A próxima figura mostra uma topologia estrela.
 
 Organizar os códigos em subdiretórios numerados para facilitar a documentação do framework.
 
-![Figura 3 – Estrutura de diretórios](3_Figuras/figura3.png)
+![Figura 3 – Estrutura de diretórios](./3_Figuras/Subdiretorios.png)
 
 **Figura 3 – Estrutura de diretórios**
 
@@ -55,6 +55,6 @@ Explicações do código do gateway.
 
 ## Pythons
 
-![Figura 4 – Arquivos do Python](3_Figuras/figura4.png)
+![Figura 4 – Arquivos do Python](./3_Figuras/Arquivos_Pythosns.png)
 
 **Figura 4 – Arquivos do Python**
