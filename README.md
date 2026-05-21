@@ -13,7 +13,7 @@ A MAC centralizada cria uma política de acesso ao meio em que o Nível 3 - Bord
 
 A próxima figura mostra uma topologia estrela.
 
-![Topologia estrela](3_Figuras/topologia_estrela.png)
+![Topologia estrela](./3_Figuras/topologia_estrela.png)
 
 ### Referências
 
@@ -22,11 +22,11 @@ A próxima figura mostra uma topologia estrela.
 
 ## Framework TpM
 
-![Framework TpM](3_Figuras/framework_tpm.png)
+![Framework TpM](./3_Figuras/framework_tpm.png)
 
 ## Organização dos códigos
 
 Organizar os códigos em subdiretórios numerados para facilitar a documentação do framework.
 
-![Organização dos códigos](3_Figuras/organizacao_codigos.png)
+![Organização dos códigos](./3_Figuras/organizacao_codigos.png)
 
