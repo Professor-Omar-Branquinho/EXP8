@@ -1,20 +1,60 @@
-# DOCUMENTAÇÃO DO GUITHUB
+# DOCUMENTAÇÃO EXP8
 
 ## Introdução
-Esse é um exemplo de como ducumentar um projeto e foi gerado pelo ChatGPT.
 
-## Códigos
-Códigos do nó sensor, gateway e Pythons.
+O EXP8 é o exemplo mais simples de MAC centralizada e os códigos estão todos uniformizados.
 
-## Figuras
-Incluiu duas figuras do Framework e do Kit-LoRa
+---
 
-![Diagrama do sistema](./3_Figuras/Framework_v1.png)
+## Revisão de Conceitos
 
-Figura 1 - Framework
+A MAC centralizada cria uma política de acesso ao meio em que o Nível 3 - Borda envia um pacote de DL para o nó sensor, que responde com um pacote de UL.
 
-![Kit-LoRa](./3_Figuras/Kit-LoRa.png)
+A próxima figura mostra uma topologia estrela.
 
-Figura 2 - Kit-LoRa
+![Figura 1 - Topologia Estrela](3_Figuras/figura1.png)
 
-Teste de alteração
+**Figura 1 - Topologia Estrela**
+
+### Sites com explicações sobre topologia de rede
+
+- https://www.ibm.com/br-pt/think/topics/network-topology
+- https://blogtecnologista.com/topologias-de-rede-estrela-arvore-barramento-anel-e-malha-explicacoes-praticas-para-o-dia-a-dia/
+
+---
+
+# Framework TpM
+
+![Figura 2 - Framework](3_Figuras/figura2.png)
+
+**Figura 2 - Framework**
+
+---
+
+## Organização dos códigos
+
+Organizar os códigos em subdiretórios numerados para facilitar a documentação do framework.
+
+![Figura 3 – Estrutura de diretórios](3_Figuras/figura3.png)
+
+**Figura 3 – Estrutura de diretórios**
+
+---
+
+## Código do Nó Sensor
+
+Explicações do código do nó sensor.
+
+---
+
+## Código do Gateway
+
+Explicações do código do gateway.
+
+---
+
+## Pythons
+
+![Figura 4 – Arquivos do Python](3_Figuras/figura4.png)
+
+**Figura 4 – Arquivos do Python**
