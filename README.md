@@ -17,7 +17,7 @@ A próxima figura mostra uma topologia estrela.
 
 ![Topologia Estrela](./3_Figuras/topologia_estrela.png)
 
----
+Figura
 
 ## Referências sobre Topologia de Rede
 
@@ -27,13 +27,13 @@ A próxima figura mostra uma topologia estrela.
 - Blog Tecnologista – Explicações práticas sobre topologias  
   https://blogtecnologista.com/topologias-de-rede-estrela-arvore-barramento-anel-e-malha-explicacoes-praticas-para-o-dia-a-dia/
 
----
+
 
 # Framework TpM
 
 ![Framework TpM](./3_Figuras/framework_tpm.png)
 
----
+Figura
 
 ## Organização dos códigos
 
