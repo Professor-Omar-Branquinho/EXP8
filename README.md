@@ -31,6 +31,10 @@ A próxima figura mostra uma topologia estrela.
 
 # Framework TpM
 
+![Framework TpM](3_Figuras/framework_tpm.png)
+
+---
+
 ## Organização dos códigos
 
 Organizar os códigos em subdiretórios numerados para facilitar a documentação do framework.
@@ -38,8 +42,8 @@ Organizar os códigos em subdiretórios numerados para facilitar a documentaçã
 ```text
 EXP8/
 │
-├── 01_NoSensor/
-├── 02_Gateway/
-├── 03_Python/
+├── 0_Sensor_LoRa_V0_6/
+├── 1_Gateway_LoRa_V0_6/
+├── 2_Pythons 2 Gateway 3 4 5 6/
 ├── 3_Figuras/
 └── README.md
