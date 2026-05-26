@@ -69,7 +69,7 @@ void Phy_serial_send_UL() { // Funcao de envio de pacote de UL para o computador
 
   // =================Informações de gerência do pacote
   PacoteUL[2] = RSSI_UL;  // aloca RSSI_UL
-  SNR_UL = SNR_UL * 10;
+  SNR_UL = SNR_UL * 100;
   SNR_UL_inteiro = (int)SNR_UL;
   PacoteUL[3] = (SNR_UL_inteiro);
   

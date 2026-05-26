@@ -14,7 +14,7 @@ void Phy_radio_receive_DL() {
 
       RSSI_dBm_DL = LoRa.packetRssi(); // Faz a leitura da RSSI medida pelo RFM95 em dBm
       SNR_DL = LoRa.packetSnr();       // Faz a leitura da SNR medida pelo RFM95
-      
+      Serial.println(SNR_DL);
       //======== CHAMA A CAMADA MAC DL
       Mac_radio_receive_DL(); 
     }
@@ -42,7 +42,7 @@ void Phy_radio_send_UL() {
 
   // =================Informações de gerência do pacote Início da montagem do pacote de UL
   PacoteUL[0] = RSSI_DL;
-  SNR_DL = SNR_DL * 10; // O valor da SNR tem uma casa decimal e ao multiplicar por 10 fica inteiro
+  SNR_DL = SNR_DL * 100; // O valor da SNR tem uma casa decimal e ao multiplicar por 10 fica inteiro
   SNR_DL_inteiro = (int)SNR_DL;
   PacoteUL[1] = (SNR_DL_inteiro/256);
   PacoteUL[2] = (SNR_DL_inteiro%256);
