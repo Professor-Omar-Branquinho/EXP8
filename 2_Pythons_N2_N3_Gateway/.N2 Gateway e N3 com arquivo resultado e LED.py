@@ -146,7 +146,7 @@ try:
       # ======== Camada de transporte DL
 
       Contador_pkt_DL = Contador_pkt_DL + 1
-      if Contador_pkt_DL == 5:
+      if Contador_pkt_DL == 256:
          Contador_pkt_DL = 0
       print (Contador_pkt_DL)
       Pacote_DL[12] = int(Contador_pkt_DL)
