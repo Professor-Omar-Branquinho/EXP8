@@ -15,12 +15,12 @@ Tamanho_pacote = 20
 # ========================= 2 - Variáveis e arquivos
 
 # Cria os pacotes de DL e UL
-PacoteDL =[0]*Tamanho_pacote
+Pacote_DL =[0]*Tamanho_pacote
 PacoteUL=[0]*Tamanho_pacote
 
 # Garante que os pacotes de DL e UL estão com valor 0
 for i in range(Tamanho_pacote):
-   PacoteDL[i] = 0
+   Pacote_DL[i] = 0
    PacoteUL[i] = 0
 
 # Arquivos temporários que são apagados a cada início de rodadas de medidas
@@ -139,31 +139,32 @@ try:
          # Se houver qualquer erro assume 0
          Comando_LED_amarelo = 0
 
-      # Coloca o comando no byte 34
+      # Coloca o comando no byte 16
 
-      PacoteDL[16] = Comando_LED_amarelo
+      Pacote_DL[16] = Comando_LED_amarelo
 
       # ======== Camada de transporte DL
 
       Contador_pkt_DL = Contador_pkt_DL + 1
-      if Contador_pkt_DL == "255":
+      if Contador_pkt_DL == 5:
          Contador_pkt_DL = 0
-      PacoteDL[12] = int(Contador_pkt_DL)
+      print (Contador_pkt_DL)
+      Pacote_DL[12] = int(Contador_pkt_DL)
 
       # ======== Camada de rede DL
 
-      PacoteDL[8] = ID_sensor
-      PacoteDL[9] = ID_gateway
+      Pacote_DL[8] = ID_sensor
+      Pacote_DL[9] = ID_gateway
 
       # ======== Camada MAC de DL
 
-      PacoteDL[4] = Tempo_entre_pacotes
+      Pacote_DL[4] = Tempo_entre_pacotes
 
       # Envia pacote de DL para ESP32 através da serial
 
       for Bytes_DL in range(Tamanho_pacote):
 
-         ser.write(chr(PacoteDL[Bytes_DL]).encode('latin1'))
+         ser.write(chr(Pacote_DL[Bytes_DL]).encode('latin1'))
 
       time.sleep(Tempo_entre_pacotes)
 
