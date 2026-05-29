@@ -3,9 +3,9 @@
 // =========== CAMADA FÍSICA (PHY) GATEWAY - recebe pacote pela USB
 void Phy_serial_receive_DL() {
   
-  if (Serial.available() >= TAMANHO_PACOTE) {  // Testa se tem 52 bytes na serial
+  if (Serial.available() >= Tamanho_pacote) {  // Testa se tem 52 bytes na serial
 
-    for (byte i = 0; i < TAMANHO_PACOTE; i++)  // PacoteUL[#] é preenchido com zero e PacoteDL[#] recebe os bytes do buffer
+    for (byte i = 0; i < Tamanho_pacote; i++)  // PacoteUL[#] é preenchido com zero e PacoteDL[#] recebe os bytes do buffer
     {
       PacoteDL[i] = Serial.read();  // Recebe os bytes do buffer para o pacote de transmissão
     }
@@ -21,7 +21,7 @@ void Phy_serial_receive_DL() {
 void Phy_radio_send_DL() {
 
   LoRa.beginPacket();                   // start packet
-  for (int i = 0; i < 52; i++) {
+  for (int i = 0; i < Tamanho_pacote; i++) {
     LoRa.write(PacoteDL[i]);            // add data to packet
   }
   LoRa.endPacket();                     // finish packet and send it
@@ -38,8 +38,8 @@ void Phy_radio_send_DL() {
 void Phy_radio_receive_UL() {
   uint8_t packetSize = LoRa.parsePacket();
   if (packetSize > 0) {
-    if (packetSize >= TAMANHO_PACOTE) {
-      for (int i = 0; i < 52; i++) {
+    if (packetSize >= Tamanho_pacote) {
+      for (int i = 0; i < Tamanho_pacote; i++) {
         PacoteUL[i] = LoRa.read();
       }
       
@@ -74,7 +74,7 @@ void Phy_serial_send_UL() { // Funcao de envio de pacote de UL para o computador
   PacoteUL[3] = (SNR_UL_inteiro);
   
   // Transmissão do pacote pela serial do ESP32 para o script em Python
-  for (int i = 0; i < 52; i++) {
+  for (int i = 0; i < Tamanho_pacote; i++) {
     Serial.write(PacoteUL[i]);
   }
     // Pisca LED Verde do Kit PKLORa indicando Recepção de Pacote UL (RX) - se permitido

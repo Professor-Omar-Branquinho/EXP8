@@ -10,14 +10,16 @@ import struct
 from time import localtime, strftime
 import os
 
+Tamanho_pacote = 20
+
 # ========================= 2 - Variáveis e arquivos
 
 # Cria os pacotes de DL e UL
-PacoteDL =[0]*52
-PacoteUL=[0]*52
+PacoteDL =[0]*Tamanho_pacote
+PacoteUL=[0]*Tamanho_pacote
 
 # Garante que os pacotes de DL e UL estão com valor 0
-for i in range(52):
+for i in range(Tamanho_pacote):
    PacoteDL[i] = 0
    PacoteUL[i] = 0
 
@@ -81,7 +83,7 @@ ser.reset_output_buffer()
 
 # =============== Camada de aplicação DL
 
-Comando_LED_amarelo = 0
+Comando_LED_amarelo = 0  # Inicia apagado
 
 # ================ Camada de Transporte DL
 
@@ -96,7 +98,6 @@ ID_gateway = 0
 
 # ================ Camada MAC DL
 
-Tamanho_pacote = 52
 Tempo_entre_pacotes = 2
 
 num_medidas = input('Entre com o número de medidas = ')
@@ -140,18 +141,19 @@ try:
 
       # Coloca o comando no byte 34
 
-      PacoteDL[34] = Comando_LED_amarelo
+      PacoteDL[16] = Comando_LED_amarelo
 
       # ======== Camada de transporte DL
 
       Contador_pkt_DL = Contador_pkt_DL + 1
-
+      if Contador_pkt_DL == "255":
+         Contador_pkt_DL = 0
       PacoteDL[12] = int(Contador_pkt_DL)
 
       # ======== Camada de rede DL
 
       PacoteDL[8] = ID_sensor
-      PacoteDL[10] = ID_gateway
+      PacoteDL[9] = ID_gateway
 
       # ======== Camada MAC de DL
 
@@ -167,13 +169,13 @@ try:
 
       # =========== Leitura do pacote UL recebido pela USB vindo do ESP32
 
-      Pacote_UL = ser.read(52)
+      Pacote_UL = ser.read(Tamanho_pacote)
 
-      if len(Pacote_UL) == 52:
+      if len(Pacote_UL) == Tamanho_pacote:
 
          # ======= Camada física UL
 
-         # RSSI Uplink
+         # RSSI Down link
 
          RSSI_DL = (
             ((Pacote_UL[0]-256)/2.0)-74
@@ -181,7 +183,7 @@ try:
             else (Pacote_UL[0]/2.0)-74
          )
 
-         # RSSI Downlink
+         # RSSI Up link
 
          RSSI_UL = (
             ((Pacote_UL[2]-256)/2.0)-74
@@ -189,8 +191,8 @@ try:
             else (Pacote_UL[2]/2.0)-74
          )
 
-         SNR = (Pacote_UL[1]*256 + Pacote_UL[18])
-
+         SNR_DL = Pacote_UL[1]
+         SNR_UL = Pacote_UL[3]
          # ======== Camada de aplicação
 
          # Luminosidade

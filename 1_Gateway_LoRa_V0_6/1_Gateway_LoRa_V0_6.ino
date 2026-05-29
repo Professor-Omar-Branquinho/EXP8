@@ -40,9 +40,9 @@ int RSSI_UL; // Variável de mapeamento da RSSI medida em um valor de 0 a 255 pa
 float SNR_UL; // Variável com a relação sinal ruído de DL
 int SNR_UL_inteiro; // Variável inteira para enviar a SNR, que será convertida para a SNR original no Python
 // ============== CAMADA MAC
-#define TAMANHO_PACOTE 52
-byte PacoteDL[TAMANHO_PACOTE];
-byte PacoteUL[TAMANHO_PACOTE];
+#define Tamanho_pacote 20
+byte PacoteDL[Tamanho_pacote];
+byte PacoteUL[Tamanho_pacote];
 int ID_gateway;    // Variável com o ID_gateway que estará no pacote de DL byte 10
 
 

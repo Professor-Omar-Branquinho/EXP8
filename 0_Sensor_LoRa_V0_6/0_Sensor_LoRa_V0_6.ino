@@ -36,9 +36,9 @@ float SNR_DL;    // Variável com a relação sinal ruído
 int SNR_DL_inteiro; // Variável inteira para enviar a SNR, que será convertida para a SNR original no Python
 
 // ============== CAMADA MAC
-#define TAMANHO_PACOTE 52
-byte PacoteDL[TAMANHO_PACOTE];
-byte PacoteUL[TAMANHO_PACOTE];
+#define Tamanho_pacote 20
+byte PacoteDL[Tamanho_pacote];
+byte PacoteUL[Tamanho_pacote];
 
 // ============= CAMADA DE REDE
 // Identificação do sensor e tamanho de pacote

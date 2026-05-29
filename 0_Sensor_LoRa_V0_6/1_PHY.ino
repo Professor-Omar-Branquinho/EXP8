@@ -3,8 +3,8 @@ void Phy_radio_receive_DL() {
   uint8_t packetSize = LoRa.parsePacket();
 
   if (packetSize) {
-    if (packetSize >= TAMANHO_PACOTE) { // Checa se o pacote recebido tem o tamanho em bytes da variável TAMANHO_PACOTE
-       for (int i = 0; i < 52; i++) {
+    if (packetSize >= Tamanho_pacote) { // Checa se o pacote recebido tem o tamanho em bytes da variável TAMANHO_PACOTE
+       for (int i = 0; i < Tamanho_pacote; i++) {
         PacoteDL[i] = LoRa.read();  // Faz a leitura do pacote recebido de DL pelo RFM95 pelo ESP32 no vetor PacoteDL
        }
 
@@ -50,7 +50,7 @@ void Phy_radio_send_UL() {
  
  // ================= TRANMISSÃO DO PACOTE ENVIDADO PELO ESP32 PARA O RFM95
   LoRa.beginPacket();                 // Inicia o RFM95 que vai transmitir o pacote de 52 bytes
-  for (int i = 0; i < 52; i++) {
+  for (int i = 0; i < Tamanho_pacote; i++) {
     LoRa.write(PacoteUL[i]);          // Envia byte a byte as informações para o RFM95
   }
   LoRa.endPacket();                   // Finaliza o envio do pacote e o RFM95 transmite o pacote para o Gateway

@@ -2,7 +2,7 @@
 //====== COMANDOS
 void App_radio_receive_DL() {
   // Acionamento do LED amarelo se o byte 34 está com valor 1
-  if (PacoteDL[34] == 1){
+  if (PacoteDL[16] == 1){
     digitalWrite(LED_AMARELO_PIN, HIGH);
   }
   else{
@@ -16,7 +16,7 @@ void App_radio_receive_DL() {
 //============== COMEÇA A CRIAR O PACOTE DE UL
 void App_radio_send_UL() {
   // Neste ponto zeramos o pacote de UL para garantir que ele não está carregando nenhuma informação de comunicação anterior.
-  for (int i = 0; i < 52; i++) {
+  for (int i = 0; i < Tamanho_pacote; i++) {
     PacoteUL[i] = 0;
   }
 
