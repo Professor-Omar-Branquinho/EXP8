@@ -10,6 +10,7 @@ import struct
 from time import localtime, strftime
 import os
 
+#Tamanho_pacote = input("Tamanho do pacote em bytes = ")
 Tamanho_pacote = 20
 
 # ========================= 2 - Variáveis e arquivos
@@ -92,12 +93,14 @@ Contador_pkt_DL = 0
 perda_PK_RX = 0
 
 # ================ Camada de Rede DL
-
+#ID_sensor = input("Identificação do sensor = ")
 ID_sensor = 1
+#ID_gateway = input ("Identificação do gateway =")
 ID_gateway = 0
 
 # ================ Camada MAC DL
 
+#Tempo_entre_pacotes = input("Tempo entre pacotes (s) =")
 Tempo_entre_pacotes = 2
 
 num_medidas = input('Entre com o número de medidas = ')
@@ -110,11 +113,13 @@ try:
 
    for j in range(1, int(Variavel_loop)):
 
+# ===================== LOOP DE ENVIO DE PACOTES =============
+
+      try:
+
       # ======== Camada de aplicação PACOTE DL
 
       # Lê o arquivo cmd_led_amarelo.txt
-
-      try:
 
          with open("cmd_led_amarelo.txt", "r") as f:
 
@@ -139,7 +144,7 @@ try:
          # Se houver qualquer erro assume 0
          Comando_LED_amarelo = 0
 
-      # Coloca o comando no byte 16
+      # Coloca o comando no byte 16 do DL
 
       Pacote_DL[16] = Comando_LED_amarelo
 
@@ -160,7 +165,9 @@ try:
 
       Pacote_DL[4] = Tempo_entre_pacotes
 
-      # Envia pacote de DL para ESP32 através da serial
+      # ======== Camada PHY de DL
+
+      # Envia pacote de DL via USB para ESP32
 
       for Bytes_DL in range(Tamanho_pacote):
 
@@ -170,11 +177,13 @@ try:
 
       # =========== Leitura do pacote UL recebido pela USB vindo do ESP32
 
+
+      # ======= Camada física UL
+
       Pacote_UL = ser.read(Tamanho_pacote)
 
       if len(Pacote_UL) == Tamanho_pacote:
 
-         # ======= Camada física UL
 
          # RSSI Down link
 
@@ -200,33 +209,9 @@ try:
 
          luminosidade = (Pacote_UL[17]*256 + Pacote_UL[18])
 
-         print(
-            'Pacote = ',
-            j,
-            ' | RSSI DL = ',
-            RSSI_DL,
-            '| RSSI UL = ',
-            RSSI_UL,
-            ' | Luminosidade = ',
-            luminosidade,
-            ' | LED = ',
-            Comando_LED_amarelo
-         )
+         print('Pacote = ',j,' | RSSI DL = ',RSSI_DL,'| RSSI UL = ',RSSI_UL,' | Luminosidade = ',luminosidade,' | LED = ',Comando_LED_amarelo)
 
-         print(
-            time.asctime(),
-            ';',
-            j,
-            ';',
-            RSSI_DL,
-            ';',
-            RSSI_UL,
-            ';',
-            luminosidade,
-            ';',
-            Comando_LED_amarelo,
-            file=Log_dados
-         )
+         print(time.asctime(),';',j,';',RSSI_DL,';',RSSI_UL,';',luminosidade,';',Comando_LED_amarelo,file=Log_dados)
 
          with open(filename2, 'a+') as f:
 
@@ -242,13 +227,7 @@ try:
 
          print('Cont = ', j, ' PERDEU PACOTE ')
 
-         print(
-            time.asctime(),
-            ';',
-            j,
-            ';;',
-            file=Log_dados
-         )
+         print(time.asctime(),';',j,';;',file=Log_dados)
 
          with open(filename2, 'a+') as f:
 
